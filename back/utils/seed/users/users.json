@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "6568a934c767ce5508de1dbe",
+    "avatar": null,
+    "firstName": "حمزه",
+    "lastName": "عزیززاده",
+    "fatherName": "علی",
+    "unionName": "نظام صنفی رایانه ای",
+    "businessCategory": "برنامه نویسی",
+    "workAddress": "کرمان فیروزآباد 13، شرقی 11",
+    "email": "hamzehazizzadeh4@gmail.com",
+    "gender": "MALE",
+    "nationalNumber": "2981459295",
+    "phoneNumber": "09103278696",
+    "role": "ADMIN",
+    "permissions": [],
+    "isConfirm": true,
+    "password": "$2a$10$AFvBQUSKo3V6c1zYpkLo6OR/Rb1me2iB8.i5NhcXglINfi7aPNB1q"
+  }
+]

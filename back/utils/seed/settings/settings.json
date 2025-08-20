@@ -1,0 +1,13 @@
+[
+  {
+    "paymentGateway": {
+      "zarinpal": {
+        "baseUrl": "",
+        "merchantId": "",
+        "callbackUrl": "",
+        "description": "",
+        "isActive": false
+      }
+    }
+  }
+]
