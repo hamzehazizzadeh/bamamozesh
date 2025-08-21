@@ -13,6 +13,9 @@ const {
 const {
   handleUploadDocument,
 } = require("../../controllers/documentController/documentController");
+const {
+  handleGetOverview,
+} = require("../../controllers/overviewController/overviewController");
 
 const router = new Router();
 
@@ -132,5 +135,17 @@ router.post(
   handleUploadDocument
 );
 //* End Upload
+
+//* Start Overview
+/**
+ * @swagger
+ * /admin/overview:
+ *   get:
+ *    tags:
+ *     - Admin:Overview
+ *    deepLinking: true
+ */
+router.get("/overview", handleGetOverview);
+//* End Overview
 
 module.exports = router;

@@ -11,9 +11,6 @@ const {
   handleEditUserInfoForAdmin,
 } = require("../../controllers/userInfoController/userInfoController");
 const {
-  handleGetOverviewForAdmin,
-} = require("../../controllers/overviewController/overviewController");
-const {
   handleGetSetting,
   handleEditSetting,
 } = require("../../controllers/settingController/settingController");
@@ -226,18 +223,6 @@ router.post("/user", handleCreateUserForAdmin);
  */
 router.put("/user/:id", handleEditUserInfoForAdmin);
 //* End User
-
-//* Start Overview
-/**
- * @swagger
- * /admin/overview:
- *   get:
- *    tags:
- *     - Admin:Overview
- *    deepLinking: true
- */
-router.get("/overview", handleGetOverviewForAdmin);
-//* End Overview
 
 //* Start Setting
 /**
