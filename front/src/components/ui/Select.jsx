@@ -1,5 +1,8 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
+import { useSelector } from "react-redux";
+
 import Icon from "@/components/ui/Icon";
+
 const Select = ({
   label,
   placeholder = "Select Option",
@@ -25,6 +28,10 @@ const Select = ({
   children,
   ...rest
 }) => {
+  const loading = useSelector((state) => state.loading);
+
+  const isDisabled = disabled || loading;
+
   options = options || Array(3).fill("option");
   return (
     <div
@@ -54,7 +61,7 @@ const Select = ({
             } text-control py-2  appearance-none ${className}  `}
             placeholder={placeholder}
             readOnly={readonly}
-            disabled={disabled}
+            disabled={isDisabled}
             id={id}
             value={value}
             size={size}
@@ -93,7 +100,7 @@ const Select = ({
             } text-control py-2 appearance-none ${className}  `}
             placeholder={placeholder}
             readOnly={readonly}
-            disabled={disabled}
+            disabled={isDisabled}
             id={id}
             value={value}
             size={size}

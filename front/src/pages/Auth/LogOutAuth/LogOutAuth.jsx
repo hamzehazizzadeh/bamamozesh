@@ -21,7 +21,10 @@ const LogOutAuth = () => {
 
   return (
     <>
-      <SiteTitle title="خروج از حساب کاربری" />
+      <SiteTitle
+        title="خروج از حساب کاربری"
+        endContent="شما درحال خروج از حساب کاربری می باشید"
+      />
 
       <section className="auth bg-base d-flex flex-wrap">
         <div className="auth-left d-lg-block d-none">

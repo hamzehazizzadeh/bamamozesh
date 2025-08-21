@@ -21,8 +21,7 @@ export const setAuthAction = (accessToken) => {
         accessToken,
         role,
         isAdmin: role === userRoleItems[0],
-        isStaff: role === userRoleItems[1],
-        isCustomer: role === userRoleItems[2],
+        isStudent: role === userRoleItems[1],
       },
     });
     await dispatch(setPermissionsAction(accessToken));

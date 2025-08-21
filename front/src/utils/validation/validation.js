@@ -150,7 +150,7 @@ const paymentGateway = Yup.object().shape({
 
 // Login User
 export const loginUserValidation = Yup.object({
-  nationalNumber,
+  phoneNumber,
   password,
 });
 

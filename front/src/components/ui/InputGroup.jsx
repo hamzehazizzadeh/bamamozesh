@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import Icon from "@/components/ui/Icon";
 import Cleave from "cleave.js/react";
+
 import "cleave.js/dist/addons/cleave-phone.us";
 
 const InputGroup = ({
@@ -31,20 +34,21 @@ const InputGroup = ({
   onFocus,
   ...rest
 }) => {
+  const loading = useSelector((state) => state.loading);
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(!open);
   };
 
+  const isDisabled = disabled || loading;
+
   return (
-    <div
-      className={`  ${horizontal ? "flex" : ""} 
-      ${merged ? "merged" : ""}  `}
-    >
+    <div className={`${horizontal ? "flex" : ""} ${merged ? "merged" : ""}`}>
       {label && (
         <label
           htmlFor={id}
-          className={`block capitalize ${classLabel}  ${
+          className={`block capitalize ${classLabel}${
             horizontal ? "flex-0 mr-6 md:w-[100px] w-[60px] break-words" : ""
           }`}
         >
@@ -52,17 +56,11 @@ const InputGroup = ({
         </label>
       )}
       <div
-        className={`flex items-stretch inputGroup 
-      
-        
-    ${append ? "has-append" : ""}
-    ${prepend ? "has-prepend" : ""}
-
-    ${error ? "is-invalid" : ""}  ${validate ? "is-valid" : ""}
-    
-   
-    ${horizontal ? "flex-1" : ""}
-      `}
+        className={`flex items-stretch inputGroup ${
+          append ? "has-append" : ""
+        } ${prepend ? "has-prepend" : ""} ${error ? "is-invalid" : ""}  ${
+          validate ? "is-valid" : ""
+        } ${horizontal ? "flex-1" : ""}`}
       >
         {/* prepend*/}
         {prepend && (
@@ -74,24 +72,30 @@ const InputGroup = ({
         )}
         <div className="flex-1">
           <div
-            className={`relative textfiled-wrapper2
-          ${error ? "is-error" : ""} 
-           ${validate ? "is-valid" : ""}
-          `}
+            className={`relative textfiled-wrapper2 ${
+              error ? "is-error" : ""
+            } ${validate ? "is-valid" : ""}`}
           >
             {name && !isMask && (
               <input
-                type={type === "password" && open === true ? "text" : type}
+                type={type === "password" && open ? "text" : type}
                 {...register(name)}
                 {...rest}
                 className={`${
-                  error ? " is-error" : " "
-                } input-group-control block w-full focus:outline-none py-[10px] ${className}  `}
+                  error ? " is-error" : ""
+                } input-group-control block w-full focus:outline-none py-[10px] ${className}`}
                 placeholder={placeholder}
                 readOnly={readonly}
-                disabled={disabled}
+                disabled={isDisabled}
                 id={id}
-                onChange={onChange}
+                onChange={(e) => {
+                  register(name).onChange(e);
+                  onChange && onChange(e);
+                }}
+                onBlur={(e) => {
+                  register(name).onBlur(e);
+                  rest?.onBlur && rest.onBlur(e);
+                }}
               />
             )}
             {!name && !isMask && (
@@ -100,11 +104,12 @@ const InputGroup = ({
                 className={`input-group-control block w-full focus:outline-none py-[10px] ${className}`}
                 placeholder={placeholder}
                 readOnly={readonly}
-                disabled={disabled}
+                disabled={isDisabled}
                 onChange={onChange}
                 id={id}
               />
             )}
+
             {name && isMask && (
               <Cleave
                 {...register(name)}
@@ -112,13 +117,19 @@ const InputGroup = ({
                 placeholder={placeholder}
                 options={options}
                 className={`${
-                  error ? " is-error" : " "
-                } input-group-control w-full py-[10px] ${className}  `}
-                onFocus={onFocus}
+                  error ? " is-error" : ""
+                } input-group-control w-full py-[10px] ${className}`}
                 id={id}
                 readOnly={readonly}
-                disabled={disabled}
-                onChange={onChange}
+                disabled={isDisabled}
+                onChange={(e) => {
+                  register(name).onChange(e);
+                  onChange && onChange(e);
+                }}
+                onBlur={(e) => {
+                  register(name).onBlur(e);
+                  rest?.onBlur && rest.onBlur(e);
+                }}
               />
             )}
             {!name && isMask && (
@@ -131,7 +142,7 @@ const InputGroup = ({
                 onFocus={onFocus}
                 id={id}
                 readOnly={readonly}
-                disabled={disabled}
+                disabled={isDisabled}
                 onChange={onChange}
               />
             )}

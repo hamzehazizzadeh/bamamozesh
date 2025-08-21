@@ -6,7 +6,9 @@ import Logo from "@/assets/images/logo/logo.svg";
 
 const PreLoader = () => {
   const [isDark] = useDarkMode();
+
   const { isAuth } = useSelector((state) => state.auth);
+
   return (
     <div className="flex flex-col items-center justify-center app_height">
       {!isAuth && (
@@ -39,7 +41,7 @@ const PreLoader = () => {
       {isAuth && (
         <span className=" inline-block mt-1 font-medium  text-sm">
           {" "}
-          Loading ...
+          درحال بارگذاری ...
         </span>
       )}
     </div>

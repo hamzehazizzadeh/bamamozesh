@@ -1,27 +1,23 @@
+import Select from "react-select";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
 
-import VectorsImage from "@/assets/images/vectors-image/vectors-1.svg";
-import Logo from "@/assets/images/logo/logo-c.svg";
 import SiteTitle from "../../../helpers/SiteTitle/SiteTitle";
 import InputGroup from "@/components/ui/InputGroup";
+import SelectGroup from "@/components/ui/SelectGroup";
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import { authContext } from "../../../context/AuthContext/AuthContext";
 import { registerUserValidation } from "../../../utils/validation/validation";
+import { convertGenderToText, genderTypeItems } from "../../../utils/enum";
 
 const RegisterAuth = () => {
-  const loading = useSelector((state) => state.loading);
-
   const { handleRegister } = useContext(authContext);
 
   // Validation
   const {
-    watch,
-    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -31,90 +27,149 @@ const RegisterAuth = () => {
 
   return (
     <>
-      <SiteTitle title="ایجاد حساب کاربری" />
+      <SiteTitle
+        title="ایجاد حساب کاربری"
+        endContent="برای ثبت نام در سامانه اطلاعات خود را وارد نمایید"
+      />
 
-      <div className="h-full grid grid-cols-12 ">
-        <div className="xl:col-span-8 lg:col-span-7 col-span-12 lg:block hidden  bg-indigo-100">
-          <div className=" w-full 2xl:max-w-4xl xl:max-w-2xl max-w-lg p-6 mx-auto ">
-            <img
-              src={VectorsImage}
-              alt="image name"
-              className="  block mx-auto"
-            />
-          </div>
-        </div>
-        <div className="xl:col-span-4 lg:col-span-5  col-span-12">
-          <div className="bg-white h-full py-6 px-14 flex flex-col justify-center">
-            {/* logo wrapper start */}
-            <div className="grow flex flex-col justify-center">
-              <div className="h-[62px] w-[62px]">
-                <Link to="/">
-                  <img
-                    src={Logo}
-                    alt=""
-                    className=" object-contain object-center h-full"
-                  />
-                </Link>
-              </div>
-              <div className=" text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-1 mt-5">
-                Welcome To Admin DashSpace
-              </div>
-              <div className=" text-gray-500 dark:text-gray-400 text-sm mb-6">
-                Please sign in to continue
-              </div>
-              <form
-                onSubmit={handleSubmit(handleRegister)}
-                className="space-y-3 "
-              >
-                <InputGroup
-                  name="name"
-                  type="text"
-                  prepend={<Icon icon="ph:lock-simple" />}
-                  placeholder=" Enter your name"
-                  register={register}
-                  error={errors.name}
-                  disabled={loading}
-                  merged
-                />
-                <InputGroup
-                  name="email"
-                  type="email"
-                  prepend={<Icon icon="ph:lock-simple" />}
-                  placeholder=" Enter your email"
-                  register={register}
-                  error={errors.email}
-                  disabled={loading}
-                  merged
-                />
-                <InputGroup
-                  name="password"
-                  type="password"
-                  prepend={<Icon icon="ph:lock-simple" />}
-                  placeholder=" Enter your password"
-                  register={register}
-                  error={errors.password}
-                  merged
-                  disabled={loading}
-                />
+      <form onSubmit={handleSubmit(handleRegister)} className="space-y-3">
+        <InputGroup
+          name="firstName"
+          type="text"
+          label="نام"
+          prepend={<Icon icon="solar:user-broken" />}
+          placeholder="نام را وارد نمایید"
+          register={register}
+          error={errors.firstName}
+          merged
+        />
+        <InputGroup
+          name="lastName"
+          type="text"
+          label="نام خانوادگی"
+          prepend={<Icon icon="solar:user-circle-broken" />}
+          placeholder="نام خانوادگی را وارد نمایید"
+          register={register}
+          error={errors.lastName}
+          merged
+        />
+        <InputGroup
+          name="fatherName"
+          type="text"
+          label="نام پدر"
+          prepend={<Icon icon="solar:shield-user-broken" />}
+          placeholder="نام پدر را وارد نمایید"
+          register={register}
+          error={errors.fatherName}
+          merged
+        />
+        <SelectGroup
+          name="gender"
+          label="جنسیت"
+          options={genderTypeItems.map((item) => ({
+            label: convertGenderToText(item),
+            value: item,
+          }))}
+          prepend={<Icon icon="solar:code-2-broken" />}
+          placeholder="جنسیت را انتخاب نمایید"
+          register={register}
+          error={errors.gender}
+          merged
+        />
+        <InputGroup
+          name="nationalNumber"
+          type="text"
+          label="کدملی"
+          prepend={<Icon icon="solar:user-id-broken" />}
+          placeholder="کدملی را وارد نمایید"
+          register={register}
+          error={errors.nationalNumber}
+          merged
+        />
+        <InputGroup
+          name="phoneNumber"
+          type="text"
+          label="شماره موبایل"
+          prepend={<Icon icon="solar:iphone-broken" />}
+          placeholder="شماره موبایل را وارد نمایید"
+          register={register}
+          error={errors.phoneNumber}
+          merged
+        />
+        <InputGroup
+          name="unionName"
+          type="text"
+          label="اسم اتحادیه"
+          prepend={<Icon icon="solar:buildings-2-broken" />}
+          placeholder="اسم اتحادیه را وارد نمایید"
+          register={register}
+          error={errors.unionName}
+          merged
+        />
+        <InputGroup
+          name="businessCategory"
+          type="text"
+          label="رسته صنفی"
+          prepend={<Icon icon="solar:buildings-broken" />}
+          placeholder="رسته صنفی را وارد نمایید"
+          register={register}
+          error={errors.businessCategory}
+          merged
+        />
+        <InputGroup
+          name="workAddress"
+          type="text"
+          label="آدرس محل کار"
+          prepend={<Icon icon="solar:streets-map-point-broken" />}
+          placeholder="آدرس محل کار را وارد نمایید"
+          register={register}
+          error={errors.workAddress}
+          merged
+        />
+        <InputGroup
+          name="email"
+          type="text"
+          label="پست الکترونیک"
+          prepend={<Icon icon="solar:letter-broken" />}
+          placeholder="پست الکترونیک را وارد نمایید"
+          register={register}
+          error={errors.email}
+          merged
+        />
+        <InputGroup
+          name="password"
+          type="password"
+          label="کلمه عبور"
+          prepend={<Icon icon="solar:lock-password-broken" />}
+          placeholder="کلمه عبور را وارد نمایید"
+          register={register}
+          error={errors.password}
+          merged
+        />
+        <InputGroup
+          name="confirmPassword"
+          type="password"
+          label="تکرار کلمه عبور"
+          prepend={<Icon icon="solar:lock-password-broken" />}
+          placeholder="تکرار کلمه عبور را وارد نمایید"
+          register={register}
+          error={errors.confirmPassword}
+          merged
+        />
 
-                <Button
-                  type="submit"
-                  text="Create an account"
-                  className="btn btn-primary block w-full text-center "
-                  isLoading={loading}
-                />
-              </form>
-              <div className=" text-center text-sm mt-5 space-x-1 rtl:space-x-reverse mb-1  ">
-                <span>Already have an account</span>
-                <span>
-                  <Link to="/login2" className=" text-indigo-500">
-                    Sign In
-                  </Link>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Button
+          type="submit"
+          text="ایجاد حساب کاربری"
+          className="btn btn-primary block w-full text-center "
+        />
+      </form>
+      <div className=" text-center text-sm mt-5 space-x-1 rtl:space-x-reverse mb-1  ">
+        <span>حساب کاربری دارید؟</span>
+        <span>
+          <Link to="/auth/login" className="text-indigo-500">
+            ورود به حساب کاربری
+          </Link>
+        </span>
       </div>
     </>
   );

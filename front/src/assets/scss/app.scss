@@ -13,6 +13,7 @@
   html,
   body {
     @apply h-full;
+    @apply font-iransans;
   }
 
   .DashSpace-app-wrapper {
@@ -68,7 +69,9 @@
     }
   }
 }
+
 @layer components {
+  @import "fonts/iransans";
   @import "components/table.scss";
   @import "components/map.scss";
   @import "components/progress";
@@ -95,7 +98,7 @@
   @import "utility/css-animation";
   @import "utility/calander";
   @import "utility/full-calender";
-  @import "components/print.scss";
+  @import "components/print";
 }
 @layer utilities {
 }

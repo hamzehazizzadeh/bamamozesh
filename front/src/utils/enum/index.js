@@ -53,10 +53,10 @@ export const convertGenderToText = (type) => {
   let result = "";
   switch (type) {
     case genderTypeItems[0]:
-      result = "ادمین";
+      result = "مرد";
       break;
     case genderTypeItems[1]:
-      result = "داوطلب";
+      result = "زن";
       break;
 
     default:

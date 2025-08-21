@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import VectorsImage from "@/assets/images/vectors-image/vectors-1.svg";
-import Logo from "@/assets/images/logo/logo-c.svg";
 import SiteTitle from "../../../helpers/SiteTitle/SiteTitle";
-import Textinput from "@/components/ui/Textinput";
+import InputGroup from "@/components/ui/InputGroup";
+import Button from "@/components/ui/Button";
+import Icon from "@/components/ui/Icon";
 import { useContext } from "react";
 import { authContext } from "../../../context/AuthContext/AuthContext";
 import { forgotPasswordValidation } from "../../../utils/validation/validation";
@@ -15,7 +15,6 @@ const ForgetPasswordAuth = () => {
 
   // Validation
   const {
-    watch,
     register,
     handleSubmit,
     formState: { errors },
@@ -25,73 +24,43 @@ const ForgetPasswordAuth = () => {
 
   return (
     <>
-      <SiteTitle title="بازیابی کلمه عبور" />
+      <SiteTitle
+        title="بازیابی کلمه عبور"
+        endContent="برای بازیابی کلمه عبور، کد ملی و شماره موبایل خود را وارد کنید"
+      />
 
-      <div className="h-full grid grid-cols-12 ">
-        <div className="col-span-8 bg-indigo-100">
-          <div className=" w-full 2xl:max-w-4xl xl:max-w-2xl max-w-lg p-6 mx-auto ">
-            <img
-              src={VectorsImage}
-              alt="image name"
-              className="  block mx-auto"
-            />
-          </div>
-        </div>
-        <div className="col-span-4">
-          <div className="bg-white h-full py-6 px-14 flex flex-col justify-center">
-            {/* logo wrapper start */}
-            <div className="grow flex flex-col justify-center">
-              <div className="h-[62px] w-[62px]">
-                <Link to="/">
-                  <img
-                    src={Logo}
-                    alt=""
-                    className=" object-contain object-center h-full"
-                  />
-                </Link>
-              </div>
-              <div className=" text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-1 mt-5">
-                Forgot Your Password?
-              </div>
-              <div className=" text-gray-500 dark:text-gray-400 text-sm mb-6">
-                Reset Password with Admin DashSpace.
-              </div>
-              <form
-                onSubmit={handleSubmit(handleForgetPassword)}
-                className="space-y-4 "
-              >
-                <Textinput
-                  name="email"
-                  label="email"
-                  type="email"
-                  register={register}
-                  placeholder="Recovery Email"
-                  error={errors.email}
-                />
+      <form onSubmit={handleSubmit(handleForgetPassword)} className="space-y-4">
+        <InputGroup
+          name="nationalNumber"
+          label="کدملی"
+          type="text"
+          register={register}
+          placeholder="کدملی را وارد نمایید"
+          error={errors.nationalNumber}
+          prepend={<Icon icon="solar:user-id-broken" />}
+          merged
+        />
+        <InputGroup
+          name="phoneNumber"
+          label="شماره موبایل"
+          type="text"
+          register={register}
+          placeholder="شماره موبایل را وارد نمایید"
+          error={errors.phoneNumber}
+          prepend={<Icon icon="solar:iphone-broken" />}
+          merged
+        />
 
-                <button className="btn btn-primary block w-full text-center">
-                  Send recovery email
-                </button>
-              </form>
-              <div className=" text-center text-sm mt-5 space-x-1 rtl:space-x-reverse mb-1  ">
-                <span> Forget It,</span>
-                <span>
-                  <Link to="/login2" className=" text-indigo-500">
-                    Send me Back
-                  </Link>
-                </span>
-                <span>to The Sign In</span>
-              </div>
-            </div>
-            <div className="">
-              <div className="mt-8 flex justify-center text-xs text-gray-400  ">
-                <a href="#">Privacy Notice</a>
-                <div className="mx-3 my-1 w-px bg-gray-200 "></div>
-                <a href="#">Term of service</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Button
+          type="submit"
+          text="بازیابی کلمه عبور"
+          className="btn btn-primary block w-full text-center "
+        />
+      </form>
+      <div className=" text-center text-sm mt-5 space-x-1 rtl:space-x-reverse mb-1">
+        <Link to="/auth/login" className="text-indigo-500">
+          بازگشت به صفحه ورود
+        </Link>
       </div>
     </>
   );

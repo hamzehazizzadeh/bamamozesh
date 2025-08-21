@@ -47,11 +47,10 @@ exports.handleRegister = async (req, res, next) => {
       password,
     });
 
-    const token = generateToken(user);
+    const accessToken = generateToken(user);
 
     resMessage(res, 200, "حساب کاربری با موفقیت ایجاد شد", {
-      phoneNumber: user.phoneNumber,
-      token,
+      accessToken,
     });
   } catch (err) {
     next(err);

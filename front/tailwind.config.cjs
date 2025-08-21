@@ -44,7 +44,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
+        iransans: ["IRANSans"],
       },
       boxShadow: {
         base: "0 2px 6px rgba(47, 43, 61,.14),0 0 transparent,0 0 transparent",

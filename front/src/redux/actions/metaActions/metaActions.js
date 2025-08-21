@@ -1,5 +1,4 @@
 import { getMetaUserService } from "../../../services/userServices";
-import { getCookies } from "../../../utils";
 
 export const setMetaAction = () => {
   return async (dispatch) => {
@@ -9,7 +8,7 @@ export const setMetaAction = () => {
         await dispatch({ type: "SET_META", payload: data.result });
       }
     } catch ({ response }) {
-      console.log("Net Boof get meta");
+      console.log("Bam Amozesh get meta");
     }
   };
 };

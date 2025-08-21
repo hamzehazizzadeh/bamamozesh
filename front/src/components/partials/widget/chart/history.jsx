@@ -59,7 +59,7 @@ const RevenueBarChart = ({ height = 400 }) => {
       labels: {
         style: {
           colors: "#f9fafb",
-          fontFamily: "Inter",
+          fontFamily: "IRANSans",
         },
       },
     },
@@ -78,7 +78,7 @@ const RevenueBarChart = ({ height = 400 }) => {
       labels: {
         style: {
           colors: "#f9fafb",
-          fontFamily: "Inter",
+          fontFamily: "IRANSans",
         },
       },
       axisBorder: {

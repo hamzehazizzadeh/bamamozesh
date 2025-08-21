@@ -1,6 +1,8 @@
-import React from "react";
-import Icon from "@/components/ui/Icon";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import Icon from "@/components/ui/Icon";
+
 function Button({
   text,
   type = "button",
@@ -20,23 +22,27 @@ function Button({
   hFlip,
   vFlip,
 }) {
+  const loading = useSelector((state) => state.loading);
+
+  const isLoader = isLoading || loading;
+
   return (
     <>
       {!link && !div && (
         <button
           type={type}
           onClick={onClick}
-          className={`btn btn inline-flex justify-center   ${
-            isLoading ? " pointer-events-none" : ""
+          className={`btn btn inline-flex justify-center ${
+            isLoader ? " pointer-events-none" : ""
           }
-        ${disabled ? " opacity-60 cursor-not-allowed" : ""}
-        ${className}`}
+          ${disabled ? " opacity-60 cursor-not-allowed" : ""}
+          ${className}`}
         >
           {/* if has children and not loading*/}
-          {children && !isLoading && children}
+          {children && !isLoader && children}
 
           {/* if no children and  loading*/}
-          {!children && !isLoading && (
+          {!children && !isLoader && (
             <span className="flex items-center">
               {/* if has icon */}
               {icon && (
@@ -63,7 +69,7 @@ function Button({
           )}
 
           {/* if loading*/}
-          {isLoading && (
+          {isLoader && (
             <>
               <svg
                 className={`animate-spin ltr:-ml-1 ltr:mr-3 rtl:-mr-1 rtl:ml-3 h-5 w-5 ${loadingClass}`}
@@ -94,16 +100,16 @@ function Button({
         <div
           onClick={onClick}
           className={`btn btn inline-flex justify-center   ${
-            isLoading ? " pointer-events-none" : ""
+            isLoader ? " pointer-events-none" : ""
           }
         ${disabled ? " opacity-60 cursor-not-allowed" : ""}
         ${className}`}
         >
           {/* if has children and not loading*/}
-          {children && !isLoading && children}
+          {children && !isLoader && children}
 
           {/* if no children and  loading*/}
-          {!children && !isLoading && (
+          {!children && !isLoader && (
             <span className="flex items-center">
               {/* if has icon */}
               {icon && (
@@ -124,7 +130,7 @@ function Button({
           )}
 
           {/* if loading*/}
-          {isLoading && (
+          {isLoader && (
             <>
               <svg
                 className={`animate-spin ltr:-ml-1 ltr:mr-3 rtl:-mr-1 rtl:ml-3 h-5 w-5 ${loadingClass}`}
@@ -155,16 +161,16 @@ function Button({
         <Link
           to={link}
           className={`btn btn inline-flex justify-center   ${
-            isLoading ? " pointer-events-none" : ""
+            isLoader ? " pointer-events-none" : ""
           }
         ${disabled ? " opacity-60 cursor-not-allowed" : ""}
         ${className}`}
         >
           {/* if has children and not loading*/}
-          {children && !isLoading && children}
+          {children && !isLoader && children}
 
           {/* if no children and  loading*/}
-          {!children && !isLoading && (
+          {!children && !isLoader && (
             <span className="flex items-center">
               {/* if has icon */}
               {icon && (
@@ -185,7 +191,7 @@ function Button({
           )}
 
           {/* if loading*/}
-          {isLoading && (
+          {isLoader && (
             <>
               <svg
                 className={`animate-spin ltr:-ml-1 ltr:mr-3 rtl:-mr-1 rtl:ml-3 h-5 w-5 ${loadingClass}`}
@@ -207,7 +213,7 @@ function Button({
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 ></path>
               </svg>
-              Loading ...
+              درحال بارگذاری ...
             </>
           )}
         </Link>

@@ -11,7 +11,7 @@ export const setUserAction = (userInfo) => {
           await dispatch({ type: "SET_USER", payload: data.result });
         }
       } catch ({ response }) {
-        console.log("Net Boof get profile");
+        console.log("Bam Amozesh get profile");
       }
     }
   };

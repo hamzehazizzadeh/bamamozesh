@@ -43,9 +43,9 @@ const App = () => {
       dispatch(setSocketActions(accessToken));
       // Get User Profiles
       dispatch(setUserAction());
+      // Get Meta
+      dispatch(setMetaAction());
     }
-    // Get Meta
-    dispatch(setMetaAction());
   }, [accessToken]);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const App = () => {
 
   return (
     <main className="App relative">
-      {loader && <PreLoader />}
+      {/* {loader && <PreLoader />} */}
 
       {/* React Toastify */}
       <ToastContainer position="bottom-left" rtl />
