@@ -1,12 +1,13 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setLayoutAction } from "../redux/actions/layoutActions/layoutActions";
 
 const useMenuHidden = () => {
   const dispatch = useDispatch();
-  // const menuHidden = useSelector((state) => state.layout.menuHidden);
-  const menuHidden = {};
+  const menuHidden = useSelector((state) => state.layout.menuHidden);
 
   const setMenuHidden = (value) => {
-    // dispatch(handleMenuHidden(value));
+    dispatch(setLayoutAction("menuHidden", value));
   };
 
   return [menuHidden, setMenuHidden];

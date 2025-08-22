@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper";
 import "swiper/css";
@@ -6,7 +5,7 @@ import "swiper/css/effect-cards";
 
 // image import
 import visaCardImage from "@/assets/images/all-img/visa-card-bg.png";
-import visaCardImage2 from "@/assets/images/logo/visa.svg";
+import visaCardImage2 from "@/assets/images/logo/visa-card-bg.svg";
 const cardLists = [
   {
     bg: "from-[#1EABEC] to-indigo-700 ",

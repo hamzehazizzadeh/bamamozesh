@@ -1,5 +1,5 @@
-import React from "react";
 import Bar from "./Bar";
+
 const ProgressBar = ({
   title,
   children,

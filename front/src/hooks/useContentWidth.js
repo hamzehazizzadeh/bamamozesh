@@ -1,12 +1,15 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setLayoutAction } from "../redux/actions/layoutActions/layoutActions";
 
 const useContentWidth = () => {
   const dispatch = useDispatch();
-  const contentWidth = {};
+
+  const contentWidth = useSelector((state) => state.layout.contentWidth);
 
   // ** Toggles Content Width
-  // const setContentWidth = (val) => dispatch(handleContentWidth(val));
-  const setContentWidth = () => {};
+  const setContentWidth = (val) =>
+    dispatch(setLayoutAction("contentWidth", val));
 
   return [contentWidth, setContentWidth];
 };

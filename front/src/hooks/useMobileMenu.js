@@ -1,15 +1,14 @@
-import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setLayoutAction } from "../redux/actions/layoutActions/layoutActions";
 
 const useMobileMenu = () => {
   const dispatch = useDispatch();
-  // const mobileMenu = useSelector((state) => state.layout.mobileMenu);
-  const mobileMenu = {};
-  const location = useLocation();
+
+  const mobileMenu = useSelector((state) => state.layout.mobileMenu);
 
   // ** Toggles Mobile Menu
-  // const setMobileMenu = (val) => dispatch(handleMobileMenu(val));
-  const setMobileMenu = () => {};
+  const setMobileMenu = (val) => dispatch(setLayoutAction("mobileMenu", val));
 
   return [mobileMenu, setMobileMenu];
 };

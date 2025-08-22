@@ -1,4 +1,3 @@
-import React from "react";
 import ProgressBar from "@/components/ui/ProgressBar";
 
 import Image1 from "@/assets/images/all-img/cus-1.png";

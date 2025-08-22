@@ -10,6 +10,7 @@ export const setSocketActions = (accessToken) => {
       reconnectionAttempts: 10,
       reconnectionDelay: 3000,
       timeout: 20000,
+      transports: ["websocket"],
     });
 
     socket.on("connect", () => {

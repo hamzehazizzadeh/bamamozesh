@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+
 export default function useWidth() {
   const [width, setWidth] = useState(window.innerWidth);
   // breakpoints

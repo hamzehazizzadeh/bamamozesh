@@ -1,10 +1,13 @@
+import { useDispatch, useSelector } from "react-redux";
+
 const useSidebar = () => {
-  // const collapsed = useSelector((state) => state.layout.isCollapsed);
-  const collapsed = {};
+  const dispatch = useDispatch();
+
+  const collapsed = useSelector((state) => state.layout.isCollapsed);
 
   // ** Toggles Menu Collapsed
-  // const setMenuCollapsed = (val) => dispatch(handleSidebarCollapsed(val));
-  const setMenuCollapsed = () => {};
+  const setMenuCollapsed = (val) =>
+    dispatch(setLayoutAction("isCollapsed", val));
 
   return [collapsed, setMenuCollapsed];
 };

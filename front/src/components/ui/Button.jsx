@@ -47,13 +47,11 @@ function Button({
               {/* if has icon */}
               {icon && (
                 <span
-                  className={`
-          ${iconPosition === "right" ? "order-1 ltr:ml-2 rtl:mr-2" : " "}
-          ${text && iconPosition === "left" ? "ltr:mr-2 rtl:ml-2" : ""}
-          
-          ${iconClass}
-          
-          `}
+                  className={`${
+                    iconPosition === "right" ? "order-1 ltr:ml-2 rtl:mr-2" : " "
+                  } ${
+                    text && iconPosition === "left" ? "ltr:mr-2 rtl:ml-2" : ""
+                  } ${iconClass}`}
                 >
                   <Icon
                     icon={icon}

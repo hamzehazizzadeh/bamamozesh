@@ -1,5 +1,3 @@
-import React from "react";
-
 const SkeletionTable = ({ items, count }) => {
   items = items || Array.from({ length: count });
   return (
@@ -8,19 +6,19 @@ const SkeletionTable = ({ items, count }) => {
         <thead>
           <tr>
             <th scope="col">
-              <div className="h-4 bg-gray-200 dark:bg-gray-500"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-500"/>
             </th>
             <th scope="col">
-              <div className="h-4 bg-gray-200 dark:bg-gray-500"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-500"/>
             </th>
             <th scope="col">
-              <div className="h-4 bg-gray-200 dark:bg-gray-500"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-500"/>
             </th>
             <th scope="col">
-              <div className="h-4 bg-gray-200 dark:bg-gray-500"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-500"/>
             </th>
             <th scope="col">
-              <div className="h-4 bg-gray-200 dark:bg-gray-500"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-500"/>
             </th>
           </tr>
         </thead>
@@ -28,19 +26,19 @@ const SkeletionTable = ({ items, count }) => {
           {items.map((item, i) => (
             <tr key={i}>
               <td>
-                <div className="h-2 bg-gray-200 dark:bg-gray-500"></div>
+                <div className="h-2 bg-gray-200 dark:bg-gray-500"/>
               </td>
               <td>
-                <div className="h-2 bg-gray-200 dark:bg-gray-500"></div>
+                <div className="h-2 bg-gray-200 dark:bg-gray-500"/>
               </td>
               <td>
-                <div className="h-2 bg-gray-200 dark:bg-gray-500"></div>
+                <div className="h-2 bg-gray-200 dark:bg-gray-500"/>
               </td>
               <td>
-                <div className="h-2 bg-gray-200 dark:bg-gray-500"></div>
+                <div className="h-2 bg-gray-200 dark:bg-gray-500"/>
               </td>
               <td>
-                <div className="h-2 bg-gray-200 dark:bg-gray-500"></div>
+                <div className="h-2 bg-gray-200 dark:bg-gray-500"/>
               </td>
             </tr>
           ))}

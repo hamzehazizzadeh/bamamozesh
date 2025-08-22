@@ -32,7 +32,11 @@ const RegisterAuth = () => {
         endContent="برای ثبت نام در سامانه اطلاعات خود را وارد نمایید"
       />
 
-      <form onSubmit={handleSubmit(handleRegister)} className="space-y-3">
+      <form
+        autoComplete="off"
+        onSubmit={handleSubmit(handleRegister)}
+        className="space-y-3"
+      >
         <InputGroup
           name="firstName"
           type="text"

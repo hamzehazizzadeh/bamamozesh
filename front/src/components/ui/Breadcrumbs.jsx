@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom";
-import { menuItems } from "@/mocks/data";
-import Icon from "@/components/ui/Icon";
+import useMenuData from "../../hooks/useMenu";
 
 const Breadcrumbs = () => {
+  const menuItems = useMenuData();
+
   const location = useLocation();
   const locationName = location.pathname.replace("/", "");
 
@@ -37,14 +38,14 @@ const Breadcrumbs = () => {
           <ul className="breadcrumbs">
             <li className="text-indigo-500">
               <NavLink to="/dashboard">Home</NavLink>
-              <div className="breadcrumbs-icon"></div>
+              <div className="breadcrumbs-icon" />
             </li>
             {groupTitle && (
               <li className="text-indigo-500">
                 <button type="button" className="capitalize">
                   {groupTitle}
                 </button>
-                <div className="breadcrumbs-icon"></div>
+                <div className="breadcrumbs-icon" />
               </li>
             )}
             <li className="capitalize text-gray-500 dark:text-gray-400">

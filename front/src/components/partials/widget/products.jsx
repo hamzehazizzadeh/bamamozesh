@@ -1,4 +1,3 @@
-import React from "react";
 import products1 from "@/assets/images/all-img/p-1.png";
 import products2 from "@/assets/images/all-img/p-2.png";
 import products3 from "@/assets/images/all-img/p-3.png";

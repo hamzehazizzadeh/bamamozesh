@@ -1,4 +1,3 @@
-import React from "react";
 import Dropdown from "@/components/ui/Dropdown";
 import Icon from "@/components/ui/Icon";
 import { Menu } from "@headlessui/react";

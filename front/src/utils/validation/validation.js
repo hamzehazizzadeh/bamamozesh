@@ -74,7 +74,6 @@ const businessCategory = Yup.string()
 const workAddress = Yup.string()
   .required("آدرس محل کار الزامی است")
   .max(1024, "آدرس محل کار نمی تواند بیشتر از 1024 کاراکتر باشد")
-  .matches(persianRegex, "آدرس محل کار باید حروف فارسی باشد")
   .trim();
 const gender = Yup.string()
   .required("جنسیت الزامی است")

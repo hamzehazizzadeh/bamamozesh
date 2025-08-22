@@ -52,7 +52,7 @@ const MainLayout = ({ children }) => {
         <div
           className="overlay bg-gray-900/50 backdrop-filter backdrop-blur-sm opacity-100 fixed inset-0 z-[999]"
           onClick={() => setMobileMenu(false)}
-        ></div>
+        />
       )}
 
       <div

@@ -1,5 +1,3 @@
-import React from "react";
-
 export const lists = [
   {
     title: "New Product Added",
@@ -56,7 +54,7 @@ const OutLineSpace = () => {
               item.status === "yellow" ? "ring-yellow-500 " : ""
             }
           `}
-          ></div>
+          />
           <div className=" relative  pl-8 flex-1   space-y-1">
             <div className="text-sm leading-none font-medium dark:text-gray-400-900 pb-1  text-gray-700 dark:text-white">
               {item.title}

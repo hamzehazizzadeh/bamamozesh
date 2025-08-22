@@ -1,13 +1,8 @@
-import React, { useState, useMemo } from "react";
+import { useMemo, forwardRef, useRef, useEffect } from "react";
 import { invoiceTable } from "@/mocks/table-data";
-import Card from "@/components/ui/Card";
-import Icon from "@/components/ui/Icon";
-import Dropdown from "@/components/ui/Dropdown";
-import Badge from "@/components/ui/Badge";
-import Avatar from "@/components/ui/Avatar";
-import Button from "@/components/ui/Button";
 
-import { useNavigate } from "react-router-dom";
+import Icon from "@/components/ui/Icon";
+import Avatar from "@/components/ui/Avatar";
 import {
   useTable,
   useRowSelect,
@@ -16,31 +11,27 @@ import {
   usePagination,
 } from "react-table";
 
-const IndeterminateCheckbox = React.forwardRef(
-  ({ indeterminate, ...rest }, ref) => {
-    const defaultRef = React.useRef();
-    const resolvedRef = ref || defaultRef;
+const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }, ref) => {
+  const defaultRef = useRef();
+  const resolvedRef = ref || defaultRef;
 
-    React.useEffect(() => {
-      resolvedRef.current.indeterminate = indeterminate;
-    }, [resolvedRef, indeterminate]);
+  useEffect(() => {
+    resolvedRef.current.indeterminate = indeterminate;
+  }, [resolvedRef, indeterminate]);
 
-    return (
-      <>
-        <input
-          type="checkbox"
-          ref={resolvedRef}
-          {...rest}
-          className="table-checkbox"
-        />
-      </>
-    );
-  }
-);
+  return (
+    <>
+      <input
+        type="checkbox"
+        ref={resolvedRef}
+        {...rest}
+        className="table-checkbox"
+      />
+    </>
+  );
+});
 
 const RecentOrderTable = () => {
-  const navigate = useNavigate();
-
   const COLUMNS = [
     {
       Header: "ID",

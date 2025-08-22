@@ -9,7 +9,7 @@ export const loginAuthService = (data) => {
   return http.post(`${base_url}/auth/login`, data);
 };
 export const forgotPasswordAuthService = (data) => {
-  return http.put(`${base_url}/auth/forgot-password`, data);
+  return http.post(`${base_url}/auth/forgot-password`, data);
 };
 // End Auth
 

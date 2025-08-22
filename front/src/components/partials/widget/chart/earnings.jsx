@@ -1,4 +1,3 @@
-import React from "react";
 import themeConfig from "@/configs/themeConfig";
 import Chart from "react-apexcharts";
 import useDarkMode from "@/hooks/useDarkMode";

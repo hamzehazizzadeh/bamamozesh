@@ -18,6 +18,7 @@ import {
 } from "../../redux/actions/authActions/authActions";
 import { setMetaAction } from "../../redux/actions/metaActions/metaActions";
 import { setSocketActions } from "./../../redux/actions/socketActions/socketActions";
+import { setLayoutAction } from "../../redux/actions/layoutActions/layoutActions";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ const App = () => {
       // Get Meta
       dispatch(setMetaAction());
     }
+    dispatch(setLayoutAction());
   }, [accessToken]);
 
   useEffect(() => {

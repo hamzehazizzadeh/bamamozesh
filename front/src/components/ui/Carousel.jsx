@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

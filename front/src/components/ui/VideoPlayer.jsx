@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import { useState } from "react";
 
 function VideoPlayer({ url, className = "w-full" }) {
   const [isPlaying, setIsPlaying] = useState(false);

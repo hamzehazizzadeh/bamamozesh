@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Collapse } from "react-collapse";
 import { NavLink } from "react-router-dom";
 import Icon from "@/components/ui/Icon";

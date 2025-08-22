@@ -1,4 +1,3 @@
-import React from "react";
 import Avatar from "@/components/ui/Avatar";
 import user1 from "@/assets/images/avatar/avatar.jpg";
 import user2 from "@/assets/images/avatar/avatar-1.jpg";
@@ -7,7 +6,6 @@ import user4 from "@/assets/images/avatar/avatar-3.jpg";
 import Usa from "@/assets/images/flags/usa.svg";
 import Brasil from "@/assets/images/flags/bra.svg";
 import Japan from "@/assets/images/flags/japan.svg";
-import Italy from "@/assets/images/flags/italy.svg";
 const columns = [
   {
     label: "Profile",

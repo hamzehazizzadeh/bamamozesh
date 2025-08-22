@@ -1,4 +1,3 @@
-import React from "react";
 import { topMenu } from "@/mocks/data";
 import Icon from "@/components/ui/Icon";
 import { Link } from "react-router-dom";

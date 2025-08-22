@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Card from "@/components/ui/Card";
 import Switch from "@/components/ui/Switch";
 import { Collapse } from "react-collapse";

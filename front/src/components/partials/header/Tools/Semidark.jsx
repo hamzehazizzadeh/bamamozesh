@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Switch from "@/components/ui/Switch";
 import useSemiDark from "@/hooks/useSemiDark";
 

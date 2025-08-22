@@ -52,7 +52,7 @@
 .single-menu-item {
   @apply relative;
   .menu-label {
-    @apply text-gray-400 dark:text-gray-300 text-xs  font-medium uppercase mb-4 mt-4 pl-8;
+    @apply text-gray-400 dark:text-gray-300 text-xs  font-medium uppercase mb-4 mt-4 pr-8;
   }
   > .menu-link {
     @apply flex text-gray-600 font-medium dark:text-gray-300 text-sm capitalize px-6 py-3  cursor-pointer;

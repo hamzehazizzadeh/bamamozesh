@@ -29,7 +29,11 @@ const LogInAuth = () => {
         endContent="برای ورود به سامانه اطلاعات خود را وارد نمایید"
       />
 
-      <form onSubmit={handleSubmit(handleLogin)} className="space-y-4">
+      <form
+        autoComplete="off"
+        onSubmit={handleSubmit(handleLogin)}
+        className="space-y-3"
+      >
         <InputGroup
           name="phoneNumber"
           type="text"
@@ -54,7 +58,7 @@ const LogInAuth = () => {
         <div className="flex justify-between">
           <Link
             to="/auth/forget-password"
-            className="text-sm text-gray-400 dark:text-gray-400 hover:text-indigo-500 hover:underline  "
+            className="text-sm text-gray-400 dark:text-gray-400 hover:text-indigo-500"
           >
             کلمه عبور خود را فراموش کرده‌اید؟
           </Link>

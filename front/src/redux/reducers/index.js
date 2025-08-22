@@ -7,6 +7,7 @@ import { metaReducer } from "./metaReducer/metaReducer";
 import { permissionsReducer } from "./permissionsReducer/permissionsReducer";
 import { socketReducer } from "./socketReducer/socketReducer";
 import { titleReducer } from "./titleReducer/titleReducer";
+import { layoutReducer } from "./layoutReducer/layoutReducer";
 
 export const reducers = combineReducers({
   auth: authReducer,
@@ -16,4 +17,5 @@ export const reducers = combineReducers({
   permissions: permissionsReducer,
   meta: metaReducer,
   socket: socketReducer,
+  layout: layoutReducer,
 });

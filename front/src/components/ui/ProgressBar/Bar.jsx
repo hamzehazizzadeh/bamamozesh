@@ -1,5 +1,3 @@
-import React, { useState, useRef, useEffect } from "react";
-
 const Bar = ({ value, className, showValue, striped, animate, active }) => {
   // striped style
 

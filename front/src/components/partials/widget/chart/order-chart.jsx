@@ -1,12 +1,5 @@
-import React from "react";
 import Chart from "react-apexcharts";
 import useDarkMode from "@/hooks/useDarkMode";
-import {
-  getGridConfig,
-  getXAxisConfig,
-  getYAxisConfig,
-  getLabel,
-} from "@/utility/appex-chart-options";
 import themeConfig from "@/configs/themeConfig";
 const OrderChart = ({ height = 220 }) => {
   const [isDark] = useDarkMode();

@@ -1,5 +1,3 @@
-import React from "react";
-
 const Avatar = ({
   src,
   className = "h-8 w-8",
@@ -20,7 +18,7 @@ const Avatar = ({
           className={` 
         absolute right-0 top-0 h-2.5 w-2.5 rounded-full border border-white
          dark:border-indigo-200  ${dotClass}`}
-        ></div>
+        />
       )}
     </div>
   );

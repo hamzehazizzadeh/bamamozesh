@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { teamData } from "../../../mocks/table-data";
 
 import Icon from "@/components/ui/Icon";

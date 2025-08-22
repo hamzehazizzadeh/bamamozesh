@@ -1,6 +1,3 @@
-import React, { useEffect } from "react";
-import Icon from "@/components/ui/Icon";
-
 import useDarkMode from "@/hooks/useDarkMode";
 
 const SwitchDark = () => {

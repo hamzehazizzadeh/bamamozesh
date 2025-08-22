@@ -1,23 +1,20 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import Dropdown from "@/components/ui/Dropdown";
 import Icon from "@/components/ui/Icon";
 import Button from "@/components/ui/Button";
 import { Menu } from "@headlessui/react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import clsx from "clsx";
-import UserAvatar from "@/assets/images/avatar/avatar.jpg";
+import { showAvatar } from "../../../../utils";
+import { convertRoleToPath, convertRoleToText } from "../../../../utils/enum";
 
-const ProfileLabel = ({ sticky }) => {
+const ProfileLabel = () => {
+  const user = useSelector((state) => state.user);
+
   return (
-    <div
-      className={clsx(" rounded-full transition-all duration-300", {
-        "h-9 w-9": sticky,
-        "lg:h-12 lg:w-12 h-7 w-7": !sticky,
-      })}
-    >
+    <div className="rounded-full transition-all duration-300 h-9 w-9">
       <img
-        src={UserAvatar}
+        src={showAvatar(user.avatar)}
         alt=""
         className="block w-full h-full object-cover rounded-full ring-1 ring-indigo-700 ring-offset-4 dark:ring-offset-gray-700"
       />
@@ -25,69 +22,51 @@ const ProfileLabel = ({ sticky }) => {
   );
 };
 
-const Profile = ({ sticky }) => {
+const Profile = () => {
+  const user = useSelector((state) => state.user);
+  const auth = useSelector((state) => state.auth);
+
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const ProfileMenu = [
     {
-      label: "Profile",
-      icon: "ph:user-circle-light",
+      label: "ویرایش حساب کاربری",
+      icon: "solar:user-broken",
       status: "green",
       action: () => {
-        navigate("/profile");
+        navigate(`/${convertRoleToPath(auth.role)}/profile`);
       },
     },
     {
-      label: "Reports",
-      icon: "ph:chart-bar-light",
+      label: "ویرایش کلمه عبور",
+      icon: "solar:pen-new-square-broken",
       status: "blue",
       action: () => {
-        navigate("/chats");
-      },
-    },
-    {
-      label: "Settings",
-      icon: "ph:gear-light",
-      status: "yellow",
-      action: () => {
-        navigate("/todos");
-      },
-    },
-    {
-      label: "Get Help",
-      icon: "ph:question-light",
-      status: "cyan",
-      action: () => {
-        navigate("/settings");
+        navigate(`/${convertRoleToPath(auth.role)}/profile/changed-password`);
       },
     },
   ];
 
-  const handleLogout = () => {
-    // Clear user data from local storage
-    localStorage.removeItem("user");
-    // dispatch(logOut());
-  };
+  const handleLogout = () => navigate("/auth/logout");
+
   return (
-    <Dropdown
-      label={<ProfileLabel sticky={sticky} />}
-      classMenuItems="w-[220px] top-[58px]  "
-    >
+    <Dropdown label={<ProfileLabel />} classMenuItems="w-[220px] top-[58px]  ">
       <div className="flex items-center px-4 py-3 border-b border-gray-10 mb-3">
         <div className="flex-none ltr:mr-[10px] rtl:ml-[10px]">
           <div className="h-[46px] w-[46px] rounded-full">
             <img
-              src={UserAvatar}
+              src={showAvatar(user.avatar)}
               alt=""
               className="block w-full h-full object-cover rounded-full"
             />
           </div>
         </div>
-        <div className="flex-1 text-gray-700 dark:text-white text-sm font-semibold  ">
-          <span className=" truncate w-full block">Faruk Ahamed</span>
-          <span className="block font-light text-xs   capitalize">
-            supper admin
+        <div className="flex-1 text-gray-700 dark:text-white text-sm font-semibold">
+          <span className=" truncate w-full block">
+            {user.firstName} {user.lastName}
+          </span>
+          <span className="block font-light text-xs capitalize">
+            {convertRoleToText(user?.role)}
           </span>
         </div>
       </div>
@@ -99,21 +78,20 @@ const Profile = ({ sticky }) => {
                 onClick={() => item.action()}
                 className={`${
                   active
-                    ? " text-indigo-500 "
+                    ? "text-indigo-500"
                     : "text-gray-600 dark:text-gray-300"
-                } block transition-all duration-150 group     `}
+                } block transition-all duration-150 group`}
               >
-                <div className={`block cursor-pointer px-4 `}>
-                  <div className="flex items-center space-x-3 rtl:space-x-reverse ">
+                <div className="block cursor-pointer px-4">
+                  <div className="flex items-center space-x-3 rtl:space-x-reverse">
                     <span
-                      className={`flex-none h-9 w-9  inline-flex items-center justify-center group-hover:scale-110 transition-all duration-200  rounded-full text-2xl  text-white
-                       ${item.status === "cyan" ? "bg-cyan-500 " : ""} 
-                       ${item.status === "blue" ? "bg-indigo-500 " : ""} 
-                      ${item.status === "red" ? "bg-red-500 " : ""} 
-                      ${item.status === "green" ? "bg-green-500 " : ""}${
+                      className={`flex-none h-9 w-9 inline-flex items-center justify-center group-hover:scale-110 transition-all duration-200  rounded-full text-2xl  text-white ${
+                        item.status === "cyan" ? "bg-cyan-500 " : ""
+                      } ${item.status === "blue" ? "bg-indigo-500 " : ""} ${
+                        item.status === "red" ? "bg-red-500 " : ""
+                      } ${item.status === "green" ? "bg-green-500 " : ""} ${
                         item.status === "yellow" ? "bg-yellow-500 " : ""
-                      }
-                      `}
+                      }`}
                     >
                       <Icon icon={item.icon} />
                     </span>
@@ -125,14 +103,12 @@ const Profile = ({ sticky }) => {
           </Menu.Item>
         ))}
         <Menu.Item onClick={handleLogout}>
-          <div
-            className={`block cursor-pointer px-4 border-t border-gray-10 py-3 mt-1 text-indigo-500 `}
-          >
+          <div className="block cursor-pointer px-4 border-t border-gray-10 py-3 mt-1 text-indigo-500">
             <Button
-              icon="ph:upload-simple-light"
-              rotate={1}
-              text="Logout"
-              className="btn-primary block w-full btn-sm "
+              icon="solar:logout-3-broken"
+              rotate={2}
+              text="خروج از حساب کاربری"
+              className="btn-danger block w-full btn-sm"
             />
           </div>
         </Menu.Item>

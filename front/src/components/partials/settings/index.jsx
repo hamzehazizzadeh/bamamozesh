@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import Icon from "@/components/ui/Icon";
 import { Transition } from "@headlessui/react";
 import SimpleBar from "simplebar-react";
@@ -10,15 +10,17 @@ import MenuClose from "./Tools/MenuClose";
 import MenuHidden from "./Tools/MenuHidden";
 import useWidth from "@/hooks/useWidth";
 import { motion, useCycle } from "framer-motion";
-import { handleCustomizer } from "@/store/layout";
 import { useSelector, useDispatch } from "react-redux";
+import { setLayoutAction } from "../../../redux/actions/layoutActions/layoutActions";
 
 const Settings = () => {
-  const { width, breakpoints } = useWidth();
-  const customizer = useSelector((state) => state.layout.customizer);
   const dispatch = useDispatch();
 
-  const setCustomizer = (val) => dispatch(handleCustomizer(val));
+  const { width, breakpoints } = useWidth();
+
+  const customizer = useSelector((state) => state.layout.customizer);
+
+  const setCustomizer = (val) => dispatch(setLayoutAction("customizer", val));
 
   const handleSidebarToggle = () => {
     toggleOpen();
@@ -93,7 +95,7 @@ const Settings = () => {
         <div
           className="overlay bg-white bg-opacity-0  backdrop-blur-[0px] fixed inset-0 z-[999]"
           onClick={handleSidebarToggle}
-        ></div>
+        />
       </Transition>
     </div>
   );

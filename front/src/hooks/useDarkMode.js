@@ -1,11 +1,16 @@
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setLayoutAction } from "../redux/actions/layoutActions/layoutActions";
 
 const useDarkmode = () => {
-  const isDark = false;
+  const dispatch = useDispatch();
+
+  const isDark = useSelector((state) => state.layout.darkMode);
 
   // ** Return a wrapped version of useState's setter function
   const setDarkMode = (mode) => {
-    // dispatch(handleDarkMode(mode));
+    dispatch(setLayoutAction("darkMode", mode));
   };
 
   useEffect(() => {

@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { Collapse } from "react-collapse";
-import Icon from "@/components/ui/Icon";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import useMobileMenu from "@/hooks/useMobileMenu";

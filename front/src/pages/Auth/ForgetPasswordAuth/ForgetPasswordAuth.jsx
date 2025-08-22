@@ -29,7 +29,11 @@ const ForgetPasswordAuth = () => {
         endContent="برای بازیابی کلمه عبور، کد ملی و شماره موبایل خود را وارد کنید"
       />
 
-      <form onSubmit={handleSubmit(handleForgetPassword)} className="space-y-4">
+      <form
+        autoComplete="off"
+        onSubmit={handleSubmit(handleForgetPassword)}
+        className="space-y-3"
+      >
         <InputGroup
           name="nationalNumber"
           label="کدملی"

@@ -1,4 +1,5 @@
-import React from "react";
+import { Fragment } from "react";
+
 import Icon from "@/components/ui/Icon";
 
 const Swicth = ({
@@ -44,7 +45,7 @@ const Swicth = ({
           htmlFor={id}
           disabled={disabled}
         />
-        <React.Fragment>
+        <Fragment>
           {outline ? (
             <div
               className={`relative inline-flex h-5 border  items-center rounded-full transition-all duration-150
@@ -116,7 +117,7 @@ const Swicth = ({
               />
             </div>
           )}
-        </React.Fragment>
+        </Fragment>
 
         {label && <span className={labelClass}>{label}</span>}
       </label>

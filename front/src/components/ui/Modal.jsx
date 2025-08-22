@@ -1,10 +1,11 @@
-import { Dialog, Transition } from "@headlessui/react";
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
+
 import Icon from "@/components/ui/Icon";
+import { Dialog, Transition } from "@headlessui/react";
 
 const Modal = ({
   activeModal,
-  onClose,
+  onClose = () => {},
   enterFrom,
   leaveFrom,
   disableBackdrop,
@@ -15,7 +16,7 @@ const Modal = ({
   scrollContent,
   title,
   uncontrolled,
-  label = "Basic Modal",
+  label,
   labelClass,
   isBlur,
   ref,
@@ -153,8 +154,7 @@ const Modal = ({
                   leaveTo={`opacity-0 ${enterFrom}`}
                 >
                   <Dialog.Panel
-                    className={`w-full transform overflow-hidden rounded-lg
-                 bg-white dark:bg-gray-800 text-left align-middle shadow-base transition-all ${className}`}
+                    className={`w-full transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left align-middle shadow-base transition-all ${className}`}
                   >
                     {title && (
                       <div
@@ -169,14 +169,14 @@ const Modal = ({
                       </div>
                     )}
                     <div
-                      className={`px-6 py-8 ${
+                      className={`p-3 ${
                         scrollContent ? "overflow-y-auto max-h-[400px]" : ""
                       }`}
                     >
                       {children}
                     </div>
                     {footerContent && (
-                      <div className="px-4 py-3 flex justify-end space-x-3 border-t border-gray-100 dark:border-gray-700">
+                      <div className="p-3 border-t border-gray-100 dark:border-gray-700">
                         {footerContent}
                       </div>
                     )}
