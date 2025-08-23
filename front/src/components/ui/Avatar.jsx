@@ -1,3 +1,6 @@
+import { hostname } from "../../services/configServices/config";
+import { showAvatar } from "../../utils";
+
 const Avatar = ({
   src,
   className = "h-8 w-8",
@@ -7,17 +10,15 @@ const Avatar = ({
   dotClass = " bg-indigo-500",
 }) => {
   return (
-    <div className={` inline-flex shrink-0 relative ${className}  `}>
+    <div className={`inline-flex shrink-0 relative ${className}`}>
       <img
-        src={src}
+        src={showAvatar(src)}
         alt={alt}
-        className={`w-full h-full block object-cover object-center relative ring-2 ring-white ${imageClass}  `}
+        className={`w-full h-full block object-cover object-center relative ring-2 ring-white ${imageClass}`}
       />
       {dot && (
         <div
-          className={` 
-        absolute right-0 top-0 h-2.5 w-2.5 rounded-full border border-white
-         dark:border-indigo-200  ${dotClass}`}
+          className={`absolute right-0 top-0 h-2.5 w-2.5 rounded-full border border-white dark:border-indigo-200 ${dotClass}`}
         />
       )}
     </div>

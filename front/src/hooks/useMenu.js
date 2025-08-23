@@ -14,12 +14,22 @@ const useMenuData = () => {
       isHeadr: true,
       title: "خانه",
     },
-
     {
       title: "خانه",
       isHide: true,
       icon: "solar:home-smile-angle-broken",
       link: "/admin",
+    },
+
+    {
+      isHeadr: true,
+      title: "مدیریت",
+    },
+    {
+      title: "کاربران",
+      isHide: true,
+      icon: "solar:users-group-two-rounded-broken",
+      link: "/admin/users",
     },
   ];
   const student = [

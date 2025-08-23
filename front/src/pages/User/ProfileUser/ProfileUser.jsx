@@ -342,7 +342,7 @@ const ChangePassword = () => {
           label="کلمه عبور"
           type="password"
           placeholder="کلمه عبور خودرا وارد نمایید"
-          prepend={<Icon icon="solar:lock-password-broken" />}
+          prepend={<Icon icon="solar:password-minimalistic-brokenn" />}
           register={register}
           append={
             <Badge
@@ -358,7 +358,7 @@ const ChangePassword = () => {
           label="کلمه عبور"
           type="password"
           placeholder="کلمه عبور خودرا وارد نمایید"
-          prepend={<Icon icon="solar:lock-password-broken" />}
+          prepend={<Icon icon="solar:password-minimalistic-brokenn" />}
           register={register}
           append={
             <Badge
@@ -374,7 +374,7 @@ const ChangePassword = () => {
           label="تکرار کلمه عبور"
           type="password"
           placeholder="کلمه عبور خودرا وارد نمایید"
-          prepend={<Icon icon="solar:lock-password-broken" />}
+          prepend={<Icon icon="solar:password-minimalistic-brokenn" />}
           register={register}
           append={
             <Badge

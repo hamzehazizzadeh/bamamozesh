@@ -49,7 +49,7 @@ const LogInAuth = () => {
           label="کلمه عبور"
           type="password"
           placeholder="کلمه عبور خودرا وارد نمایید"
-          prepend={<Icon icon="solar:lock-password-broken" />}
+          prepend={<Icon icon="solar:password-minimalistic-brokenn" />}
           register={register}
           error={errors.password}
           merged

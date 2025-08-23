@@ -3,9 +3,9 @@ import { useState } from "react";
 
 import Icon from "./Icon";
 import Modal from "./Modal";
+import Button from "./Button";
 import { convertDataURLtoFile } from "../../utils";
 import { hostname } from "../../services/configServices/config";
-import Button from "./Button";
 
 const AvatarCropper = ({
   value,
@@ -132,8 +132,6 @@ const AvatarCropper = ({
       <Modal
         title="برش تصویر"
         activeModal={!!image}
-        enterFrom="translate-y-5"
-        leaveFrom="translate-y-0"
         onClose={onCropReset}
         footerContent={
           <div className="grid grid-cols-3 gap-3">

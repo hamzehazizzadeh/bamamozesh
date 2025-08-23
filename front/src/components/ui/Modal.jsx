@@ -6,8 +6,8 @@ import { Dialog, Transition } from "@headlessui/react";
 const Modal = ({
   activeModal,
   onClose = () => {},
-  enterFrom,
-  leaveFrom,
+  enterFrom = "translate-y-5",
+  leaveFrom = "translate-y-0",
   disableBackdrop,
   className = "max-w-lg",
   children,
@@ -120,7 +120,7 @@ const Modal = ({
           </Transition>
         </>
       ) : (
-        <Transition appear show={activeModal} as={Fragment}>
+        <Transition appear show={!!activeModal} as={Fragment}>
           <Dialog as="div" className="relative z-[99999]" onClose={onClose}>
             <Transition.Child
               as={Fragment}

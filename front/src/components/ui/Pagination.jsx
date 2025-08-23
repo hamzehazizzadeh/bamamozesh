@@ -10,11 +10,12 @@ const Pagination = ({
   className = "custom-class",
 }) => {
   const [pages, setPages] = useState([]);
-  const rangeStart = useEffect(() => {
+
+  useEffect(() => {
     let pages = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pages.push(i);
-    }
+
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+
     setPages(pages);
   }, [totalPages]);
 
@@ -28,7 +29,7 @@ const Pagination = ({
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
             >
-              Previous
+              قبلی
             </button>
           ) : (
             <button
@@ -36,7 +37,7 @@ const Pagination = ({
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
             >
-              <Icon icon="heroicons-outline:chevron-left" />
+              <Icon icon="heroicons-outline:chevron-right" />
             </button>
           )}
         </li>
@@ -60,7 +61,7 @@ const Pagination = ({
               disabled={currentPage === totalPages}
               className=" text-gray-600 dark:text-gray-300 prev-next-btn"
             >
-              Next
+              بعدی
             </button>
           ) : (
             <button
@@ -68,7 +69,7 @@ const Pagination = ({
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
             >
-              <Icon icon="heroicons-outline:chevron-right" />
+              <Icon icon="heroicons-outline:chevron-left" />
             </button>
           )}
         </li>

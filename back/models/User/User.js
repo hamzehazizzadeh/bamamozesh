@@ -78,7 +78,8 @@ const mongoSchema = new Schema(
     role: {
       type: String,
       enum: userRoleItems,
-      default: userRoleItems[2],
+      default: userRoleItems[1],
+      required: true,
     },
     permissions: {
       type: [String],

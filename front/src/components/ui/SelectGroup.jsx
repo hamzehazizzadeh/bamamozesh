@@ -177,7 +177,7 @@ const SelectGroup = ({
       </div>
       {/* error and success message*/}
       {error && (
-        <div className="mt-2 text-red-500 block text-sm">{error.message}</div>
+        <div className="mt-2 text-red-500 block text-sm text-right">{error.message}</div>
       )}
       {/* validated and success message*/}
       {validate && (

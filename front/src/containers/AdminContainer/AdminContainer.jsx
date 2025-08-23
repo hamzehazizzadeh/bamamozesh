@@ -9,6 +9,8 @@ import NotFoundPage from "./../../pages/Page/NotFoundPage/NotFoundPage";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
 import { decodeJWT, getCookies } from "../../utils";
 import { userRoleItems } from "../../utils/enum";
+import UserAdminContext from "../../context/AdminContext/UserAdminContext/UserAdminContext";
+import UsersAdmin from "../../pages/Admin/UsersAdmin/UsersAdmin";
 
 const AdminContainer = () => {
   const accessToken = getCookies("accessToken");
@@ -44,6 +46,16 @@ const AdminContainer = () => {
             }
           />
         ))}
+
+        {/* Users */}
+        <Route
+          path="/users"
+          element={
+            <UserAdminContext>
+              <UsersAdmin />
+            </UserAdminContext>
+          }
+        />
 
         {/* Not Found */}
         <Route path="*" element={<NotFoundPage />} />

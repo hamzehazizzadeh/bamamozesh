@@ -99,10 +99,9 @@ const verifyCode = Yup.string()
   .required("کد تایید الزامی است")
   .min(6, "کد تایید نمی تواند کمتر از 6 کاراکتر باشد")
   .max(6, "کد تایید نمی تواند بیشتر از 6 کاراکتر باشد");
-const permissions = Yup.string()
-  .required("سطح دسترسی الزامی است")
-  .min(16, "سطح دسترسی نمی تواند کمتر از 16 کاراکتر باشد")
-  .max(16, "سطح دسترسی نمی تواند بیشتر از 16 کاراکتر باشد");
+const permissions = Yup.array(
+  Yup.string().required("سطح دسترسی الزامی است")
+).required("سطح دسترسی الزامی است");
 const description = Yup.string().max(
   4096,
   "توضیحات نمی تواند بیشتر از 4096 کاراکتر باشد"
@@ -241,7 +240,7 @@ export const editUserForAdminValidation = Yup.object().shape({
 });
 
 // Change User Password
-export const changeUserPasswordValidation = Yup.object().shape({
+export const changePasswordForAdminValidation = Yup.object().shape({
   password,
   confirmPassword,
 });

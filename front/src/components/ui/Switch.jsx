@@ -2,7 +2,7 @@ import { Fragment } from "react";
 
 import Icon from "@/components/ui/Icon";
 
-const Swicth = ({
+const Switch = ({
   prevIcon,
   nextIcon,
   label,
@@ -48,19 +48,18 @@ const Swicth = ({
         <Fragment>
           {outline ? (
             <div
-              className={`relative inline-flex h-5 border  items-center rounded-full transition-all duration-150
-          
-          ${value ? activeClass : "border-indigo-200"}
-          ${badge ? "w-11" : "min-w-[36px]"}
-           ${disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "}
-          `}
+              className={`relative inline-flex h-5 border items-center rounded-full transition-all duration-150 ${
+                value ? activeClass : "border-indigo-200"
+              } ${badge ? "w-11" : "min-w-[36px]"} ${
+                disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "
+              }`}
             >
               {badge && value && (
                 <span className="absolute leading-[1px] left-1 top-1/2 -translate-y-1/2 capitalize font-bold text-white tracking-[1px]">
                   {prevIcon ? (
                     <Icon icon={prevIcon} />
                   ) : (
-                    <span className="text-[9px] ">on</span>
+                    <span className="text-[9px]">فعال</span>
                   )}
                 </span>
               )}
@@ -69,34 +68,31 @@ const Swicth = ({
                   {nextIcon ? (
                     <Icon icon={nextIcon} />
                   ) : (
-                    <span className="text-[9px]">Off</span>
+                    <span className="text-[9px]">غیرفعال</span>
                   )}
                 </span>
               )}
 
               <span
-                className={`inline-block h-3 w-3 transform rounded-full transition-all duration-150 
-          ${classChange()}  ${
-                  value ? `bg-opacity-100 ${activeThumb}` : "  bg-indigo-200"
-                }
-          `}
+                className={`inline-block h-3 w-3 transform rounded-full transition-all duration-150 ${classChange()} ${
+                  value ? `bg-opacity-100 ${activeThumb}` : "bg-indigo-200"
+                }`}
               />
             </div>
           ) : (
             <div
-              className={`relative inline-flex h-5   items-center rounded-full transition-all duration-150
-          
-          ${value ? activeClass : "bg-indigo-200"}
-          ${badge ? "w-11" : "min-w-[36px]"}
-           ${disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "}
-          `}
+              className={`relative inline-flex h-5 items-center rounded-full transition-all duration-150 ${
+                value ? activeClass : "bg-indigo-200"
+              } ${badge ? "w-11" : "min-w-[36px]"} ${
+                disabled ? " cursor-not-allowed opacity-50" : "cursor-pointer "
+              }`}
             >
               {badge && value && (
                 <span className="absolute leading-[1px] left-1 top-1/2 -translate-y-1/2 capitalize font-bold text-white tracking-[1px]">
                   {prevIcon ? (
                     <Icon icon={prevIcon} />
                   ) : (
-                    <span className="text-[9px] ">on</span>
+                    <span className="text-[9px]">فعال</span>
                   )}
                 </span>
               )}
@@ -105,15 +101,13 @@ const Swicth = ({
                   {nextIcon ? (
                     <Icon icon={nextIcon} />
                   ) : (
-                    <span className="text-[9px]">Off</span>
+                    <span className="text-[9px]">غیرفعال</span>
                   )}
                 </span>
               )}
 
               <span
-                className={`inline-block h-3 w-3 transform rounded-full bg-white transition-all duration-150 
-          ${classChange()}
-          `}
+                className={`inline-block h-3 w-3 transform rounded-full bg-white transition-all duration-150 ${classChange()}`}
               />
             </div>
           )}
@@ -125,4 +119,4 @@ const Swicth = ({
   );
 };
 
-export default Swicth;
+export default Switch;

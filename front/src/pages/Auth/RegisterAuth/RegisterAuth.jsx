@@ -144,7 +144,7 @@ const RegisterAuth = () => {
           name="password"
           type="password"
           label="کلمه عبور"
-          prepend={<Icon icon="solar:lock-password-broken" />}
+          prepend={<Icon icon="solar:password-minimalistic-brokenn" />}
           placeholder="کلمه عبور را وارد نمایید"
           register={register}
           error={errors.password}
@@ -154,7 +154,7 @@ const RegisterAuth = () => {
           name="confirmPassword"
           type="password"
           label="تکرار کلمه عبور"
-          prepend={<Icon icon="solar:lock-password-broken" />}
+          prepend={<Icon icon="solar:password-minimalistic-brokenn" />}
           placeholder="تکرار کلمه عبور را وارد نمایید"
           register={register}
           error={errors.confirmPassword}
